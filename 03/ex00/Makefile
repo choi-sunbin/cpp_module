@@ -6,13 +6,13 @@
 #    By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 17:01:26 by sunbchoi          #+#    #+#              #
-#    Updated: 2022/02/18 00:24:54 by sunbchoi         ###   ########.fr        #
+#    Updated: 2022/02/18 02:15:09 by sunbchoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a.out
-SRC = main.cpp \
-	Fixed.cpp \
+NAME = FragTrap
+SRC = FragTrap.cpp \
+	main.cpp \
 	
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror -std=c++98

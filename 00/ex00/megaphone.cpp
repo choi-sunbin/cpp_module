@@ -6,45 +6,32 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 23:47:05 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/01/09 23:58:45 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/18 00:07:33 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-namespace	megaphone
-{
-	void	use(char *str)
-	{
-		int loop;
-		
-		loop = 0;
-		while(str[loop] != 0)
-		{
-			if (str[loop] >= 'a' && str[loop] <= 'z')
-				str[loop] -= 'a' - 'A';
-			loop++;
-		}
-		std::cout << str;
-	}
-	void	none_str()
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	}
-}
-
 int	main(int argc, char *argv[])
 {
 	int	loop;
+	int loop2;
 
 	if (argc == 1)
-		megaphone::none_str();
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	else
 	{
 		loop = 1;
 		while (loop < argc)
 		{
-			megaphone::use(argv[loop]);
+			loop2 = 0;
+			while(argv[loop][loop2] != 0)
+			{
+				if (argv[loop][loop2] >= 'a' && argv[loop][loop2] <= 'z')
+					argv[loop][loop2] -= 'a' - 'A';
+				loop2++;
+			}
+			std::cout << argv[loop];
 			loop++;
 		}
 		std::cout << std::endl;

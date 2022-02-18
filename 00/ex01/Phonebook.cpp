@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 02:48:09 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/18 00:48:51 by sunbchoi         ###   ########.fr       */
+/*   Created: 2022/01/27 17:02:08 by sunbchoi          #+#    #+#             */
+/*   Updated: 2022/02/17 19:17:40 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Phonebook.hpp"
 
-#include <iostream>
-
-int main( void )
+int Phonebook::set_info(int cnt)
 {
-  Fixed a;
-  Fixed b( a );
-  Fixed c;
-  c = b;
-  std::cout << a.getRawBits() << std::endl;
-  std::cout << b.getRawBits() << std::endl;
-  std::cout << c.getRawBits() << std::endl;
-  return 0;
+	(this->contents[cnt]).set_info();
+	return (0);
 }
 
+Contact	*Phonebook::ret_bookarray(void)
+{
+	return (this->contents);
+}

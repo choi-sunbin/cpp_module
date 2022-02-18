@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   friends.cpp                                        :+:      :+:    :+:   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/27 17:02:08 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/04 15:48:35 by sunbchoi         ###   ########.fr       */
+/*   Created: 2022/02/17 18:44:55 by sunbchoi          #+#    #+#             */
+/*   Updated: 2022/02/17 21:40:05 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "Contact.hpp"
+#include "Phonebook.hpp"
 
-void Friend::print_search(int index)
+Contact::Contact(void)
+: 	first_name(""),
+	last_name(""),
+	nickname(""),
+	phone_num(""),
+	secret_info("")
+{
+}
+
+void Contact::print_search(int index)
 {
 	std::cout << std::setw(10) << std::setfill(' ') << index;
 	std::cout << "|";
@@ -25,7 +35,7 @@ void Friend::print_search(int index)
 	std::cout << std::endl;
 }
 
-int Friend::set_info(void)
+int Contact::set_info(void)
 {
 	std::string info;
 
@@ -43,7 +53,19 @@ int Friend::set_info(void)
 	return (0);
 }
 
-void Friend::print_info(void)
+std::string	Contact::str_trim(std::string str)
+{
+	std::string sub_str;
+	
+	if (str.length	() >= 10)
+		sub_str = str.substr(0, 9) + ".";
+	else
+		sub_str = str;
+	return (sub_str);
+}
+
+
+void Contact::print_info(void)
 {
 	std::cout << "First Name :" << this->first_name << std::endl;
 	std::cout << "Last Name :" << this->last_name << std::endl;

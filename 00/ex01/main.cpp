@@ -6,11 +6,12 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 01:07:40 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/04 17:00:14 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/17 21:40:53 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
+#include "Contact.hpp"
 
 int command_check(std::string cmd)
 {
@@ -31,21 +32,10 @@ void	command_exit(void)
 	exit(EXIT_SUCCESS);
 }
 
-int	command_add(Friend &new_friend)
+int	command_add(Phonebook &book, int cnt)
 {
-	new_friend.set_info();
+	book.set_info(cnt);
 	return (0);
-}
-
-std::string	Friend::str_trim(std::string str)
-{
-	std::string sub_str;
-	
-	if (str.length	() >= 10)
-		sub_str = str.substr(0, 9) + ".";
-	else
-		sub_str = str;
-	return (sub_str);
 }
 
 std::string prompt_input(std::string str)
@@ -60,9 +50,8 @@ std::string prompt_input(std::string str)
 	return (input);
 }
 
-int	command_search(Friend friend_info[8], int cnt)
+int	command_search(Contact book_info[8], int cnt)
 {
-	Friend cur_friend;
 	std::string view_cmd;
 	std::stringstream stream;
 	int index;
@@ -81,16 +70,16 @@ int	command_search(Friend friend_info[8], int cnt)
 	while (loop < 8 && loop < cnt)
 	{
 		if (cnt >= 8)
-			friend_info[(loop + cnt) % 8].print_search(loop);
+			book_info[(loop + cnt) % 8].print_search(loop);
 		else
-			friend_info[loop].print_search(loop);
+			book_info[loop].print_search(loop);
 		loop++;
 	} 
 	view_cmd = prompt_input("Select index :");
 	stream << view_cmd;
 	stream >> index;
-	if (0 <= index && index <= 8 && stream.fail() == false)
-        friend_info[index].print_info();
+	if (0 <= index && index <= 8 && index < cnt && stream.fail() == false)
+        book_info[index].print_info();
     else
         std::cout << "This is an unauthorized number." << std::endl;
 	return (0);
@@ -109,7 +98,7 @@ int main()
 {
 	std::string	cmd;
 	int	comand_flag;
-	Friend	friends[8];
+	Phonebook book;
 	int		friend_count;
 
 	print_intro();
@@ -120,16 +109,17 @@ int main()
 		comand_flag = command_check(cmd);
 		if (!comand_flag)
 			continue;
-		//PROCESS
 		if (comand_flag == COM_EXIT)
 			command_exit();
 		else if (comand_flag == COM_ADD)
 		{
-			command_add(friends[friend_count % 8]);
+			command_add(book, (friend_count % 8));
 			friend_count++;
 		}
 		else if (comand_flag == COM_SEARCH)
-			command_search(friends, friend_count);
+		{
+			command_search(book.ret_bookarray(), friend_count);
+		}
 		if (friend_count == 16)
 			friend_count = 8;
 	}
