@@ -6,7 +6,7 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 16:34:12 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/09 17:37:44 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/20 01:17:57 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class Weapon
 	public:
 		Weapon(std::string type);
 		~Weapon(void);
-		std::string	getType();
-		bool		setType(std::string newType);
+		const	std::string	&getType() const;
+		bool	setType(const std::string &newType);
 
 	private:
 		std::string type;

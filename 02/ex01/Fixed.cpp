@@ -6,7 +6,7 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 02:49:39 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/18 01:41:08 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/20 01:33:24 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Fixed::Fixed(void)
 Fixed::Fixed(const Fixed &other)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = other;
+	value = other.getRawBits();
 }
 
 // 고정 소수점 소숫점->문제 8비트 명시 

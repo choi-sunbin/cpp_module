@@ -6,7 +6,7 @@
 #    By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 17:01:26 by sunbchoi          #+#    #+#              #
-#    Updated: 2022/02/09 17:41:14 by sunbchoi         ###   ########.fr        #
+#    Updated: 2022/02/19 17:14:56 by sunbchoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC = main.cpp \
 	randomChump.cpp \
 	Zombie.cpp \
 	
-CC = clang++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)

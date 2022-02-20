@@ -6,7 +6,7 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 16:34:03 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/09 17:31:21 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/19 17:14:11 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ Weapon::~Weapon(void)
 {
 }
 
-std::string	Weapon::getType(void)
+const std::string&	Weapon::getType(void) const
 {
 	return (this->type);
 }
 
-bool		Weapon::setType(std::string newType)
+bool		Weapon::setType(const std::string &newType)
 {
 	if (newType.length() == 0)
 	{

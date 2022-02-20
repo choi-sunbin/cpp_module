@@ -6,13 +6,13 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:25:55 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/07 17:52:38 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/19 17:16:35 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main( void )
+int	main(void)
 {
 	std::cout << "First Zombie Create and Announce" << std::endl;
 	{

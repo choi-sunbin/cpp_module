@@ -6,11 +6,11 @@
 #    By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 17:01:26 by sunbchoi          #+#    #+#              #
-#    Updated: 2022/02/11 16:13:31 by sunbchoi         ###   ########.fr        #
+#    Updated: 2022/02/18 23:40:54 by sunbchoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex04
+NAME = replace
 SRC = main.cpp \
 	
 CC = clang++

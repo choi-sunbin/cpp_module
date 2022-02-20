@@ -6,7 +6,7 @@
 #    By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 17:01:26 by sunbchoi          #+#    #+#              #
-#    Updated: 2022/02/09 17:26:35 by sunbchoi         ###   ########.fr        #
+#    Updated: 2022/02/19 17:15:10 by sunbchoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INC = Weapon.hpp \
 	HumanA.hpp \
 	HumanB.hpp \
 	
-CC = clang++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)

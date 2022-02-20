@@ -6,7 +6,7 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 16:23:00 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/11 15:30:51 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/20 01:17:16 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void HumanB::attack()
 	}
 }
 
-Weapon& HumanB::getWeapon(void)
+Weapon& HumanB::getWeapon(void) const
 {
 	return (*(this->weapon));
 }

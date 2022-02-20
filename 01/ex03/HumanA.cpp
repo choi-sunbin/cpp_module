@@ -6,7 +6,7 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 16:22:53 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/09 17:37:09 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/20 01:15:15 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void HumanA::attack()
 	<< this->getWeapon().getType() << std::endl;
 }
 
-Weapon& HumanA::getWeapon(void)
+Weapon& HumanA::getWeapon(void) const
 {
 	return (this->weapon);
 }

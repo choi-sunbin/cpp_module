@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/09 16:22:58 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/20 01:16:21 by sunbchoi         ###   ########.fr       */
+/*   Created: 2022/02/19 01:56:27 by sunbchoi          #+#    #+#             */
+/*   Updated: 2022/02/20 03:05:59 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
+# include "ClapTrap.hpp"
 
-
-#include "Weapon.hpp"
-#include <string>
-#include <iostream>
-
-class HumanB
+class FragTrap : public ClapTrap
 {
+	public:
+		FragTrap(void);
+		FragTrap(const std::string &name);
+		~FragTrap(void);
 
-public:
-
-	HumanB(std::string name);
-	~HumanB(void);
-	void	attack(void);
-
-	Weapon&	getWeapon(void) const;
-	bool	setWeapon(Weapon& newWeapon);
-private:
-	std::string	name;
-	Weapon		*weapon;
+		FragTrap&	operator=(const FragTrap &other);
+		void	highFivesGuys(void);
 };
+
+#endif

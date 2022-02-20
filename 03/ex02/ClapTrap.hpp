@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/09 16:22:58 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/20 01:16:21 by sunbchoi         ###   ########.fr       */
+/*   Created: 2022/02/19 01:56:27 by sunbchoi          #+#    #+#             */
+/*   Updated: 2022/02/20 02:45:32 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
+# include <iostream>
 
-
-#include "Weapon.hpp"
-#include <string>
-#include <iostream>
-
-class HumanB
+class ClapTrap
 {
-
 public:
+	ClapTrap(void);
+	ClapTrap(const std::string &name);
+	~ClapTrap(void);
 
-	HumanB(std::string name);
-	~HumanB(void);
-	void	attack(void);
-
-	Weapon&	getWeapon(void) const;
-	bool	setWeapon(Weapon& newWeapon);
-private:
+	ClapTrap&	operator=(const ClapTrap &other);
+	void	attack(const std::string &target);
+	void	takeDamage(unsigned int amount);
+	void	beRepaired(unsigned int amount);
+protected:
 	std::string	name;
-	Weapon		*weapon;
+	int			hitPoints;
+	int			energyPoints;
+	int			maxEnergyPoints;
+	int			attackDamage;
 };
+
+#endif
