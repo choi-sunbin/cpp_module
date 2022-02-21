@@ -1,35 +1,76 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/20 15:06:56 by sunbchoi          #+#    #+#             */
+/*   Updated: 2022/02/21 18:49:07 by sunbchoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Brain.hpp"
+#include <time.h>
+#include <unistd.h>
 
-STRING make_name(int idx){
-	const static STRING num = "ABCDEFGHIJ";
-	STRING ret;
-	while (idx){
-		ret.push_back(num[idx % 10]);
-		idx /= 10;
+std::string make_rand_brain()
+{
+	const static std::string think = "ANBKMCLZOQ";
+	std::string ret;
+
+	ret = think[rand() % 10];
+	return (ret);
+}
+
+Brain::Brain()
+{
+	int loop;
+	
+	loop = 0;
+	sleep(1);
+	srand(time(NULL));
+	while (loop < 100)
+	{
+		idea[loop] = make_rand_brain();
+		loop++;
 	}
-	return ret;
+	std::cout << "< Brain > Default consturctor" << std::endl;
 }
 
-Brain::Brain(){
-	for(int i = 0; i < SZ; ++i)
-		idea[i] = make_name(i + 1);
-	COUT << "< Brain > Default consturctor" << ENDL;
+Brain::Brain(const Brain &other)
+{
+	int loop;
+	
+	loop = 0;
+	while (loop < 100)
+	{
+		idea[loop] = other.getIdea(loop);
+		loop++;
+	}
+	std::cout << "< Brain > Copy consturctor" << std::endl;
 }
-Brain::Brain(const Brain &obj){
-	for(int i = 0; i < SZ; ++i)
-		idea[i] = obj.getIdea(i);
-	COUT << "< Brain > Copy consturctor" << ENDL;
+
+Brain &Brain::operator=(const Brain &other)
+{
+	int loop;
+
+	loop = 0;
+	while (loop < 100)
+	{
+		idea[loop] = other.getIdea(loop);
+		loop++;
+	}
+	std::cout << "< Brain > Copy Assigned" << std::endl;
+	return (*this);
 }
-Brain &Brain::operator=(const Brain &obj){
-	for(int i = 0; i < SZ; ++i)
-		idea[i] = obj.getIdea(i);
-	COUT << "< Brain > Copy Assigned" << ENDL;
-	return *this;
+
+Brain::~Brain()
+{
+	std::cout << "< Brain > Destructor" << std::endl;
 }
-Brain::~Brain(){ COUT << "< Brain > Destructor" << ENDL; }
-STRING Brain::getIdea(const int &idx) const{ return this->idea[idx]; }
-OSTREAM &operator<<(OSTREAM &output, const Brain &obj){
-	for(int i = 0; i < SZ; ++i)
-		output << "[BrainNum:" << i + 1 << "]\t" << obj.getIdea(i) << ENDL;
-	return output;
+
+std::string Brain::getIdea(const int &idx) const
+{
+	return this->idea[idx];
 }

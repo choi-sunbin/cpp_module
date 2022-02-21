@@ -6,13 +6,11 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 01:57:04 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/20 02:50:44 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/22 00:37:33 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-
-
 
 ScavTrap::ScavTrap()
 {
@@ -74,6 +72,6 @@ void		ScavTrap::guardGate(void)
 {
 	std::cout << "ScavTrap " \
 	<< "<" << name << ">" \
-	<< " is guarding the gate " \
+	<< " is guarding the gate." \
 	<< std::endl;
 }

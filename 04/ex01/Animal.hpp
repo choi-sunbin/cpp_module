@@ -1,30 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/20 12:41:16 by sunbchoi          #+#    #+#             */
+/*   Updated: 2022/02/20 14:50:31 by sunbchoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+# define ANIMAL_HPP
 
-#define ENDL	std::endl
-#define COUT	std::cout
-#define STRING	std::string
-#define OSTREAM	std::ostream
+# include <iostream>
+# include <string>
 
-#define ANIMAL	"Animal"
-
-#include <iostream>
-#include <string>
+//Why Use virtual ~Animal() 
+//virtual destructors are often used to manage classes with pointers.
+//If you are not a virtual destructors, only the destructors of the Animal class is executed
+//No destructor of another class inherited is called.
 
 class Animal
 {
 protected:
-	STRING type;
+	std::string type;
 public:
 	Animal();
-	Animal(const Animal &obj);
-	Animal &operator=(const Animal &obj);
+	Animal(const Animal &other);
+	Animal &operator=(const Animal &other);
 	virtual ~Animal();
 
-	STRING getType() const;
+	std::string getType() const;
 	virtual void makeSound() const;
 };
-
-OSTREAM &operator<<(OSTREAM &output, const Animal &obj);
 
 #endif

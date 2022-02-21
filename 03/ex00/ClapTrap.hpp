@@ -6,7 +6,7 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 01:56:27 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/20 02:16:11 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/21 23:35:27 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ public:
 	void	attack(const std::string  &target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
-
 
 private:
 	std::string	name;

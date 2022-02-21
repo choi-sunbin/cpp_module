@@ -6,7 +6,7 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 12:41:16 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/20 13:37:31 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/20 14:50:31 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,5 @@ public:
 	std::string getType() const;
 	virtual void makeSound() const;
 };
-
-std::ostream &operator<<(std::ostream &output, const Animal &obj);
 
 #endif

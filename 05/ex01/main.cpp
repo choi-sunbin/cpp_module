@@ -5,25 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/19 12:22:26 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/22 00:34:06 by sunbchoi         ###   ########.fr       */
+/*   Created: 2022/02/22 01:56:36 by sunbchoi          #+#    #+#             */
+/*   Updated: 2022/02/22 03:48:57 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include <iostream>
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-int main(void)
+int main()
 {
-	ClapTrap    a;
-	ClapTrap    b("b");
-	ClapTrap	c;
+	Bureaucrat temp("sunbchoi", 100);
+	//Bureaucrat err_1("sunbchoi2", 0);
+	//Bureaucrat err_2("sunbchoi3", 190);
+	Form formA("a", 105, 105);
+	Form formB("b", 100, 100);
 
-	c = b;
-	b.attack("a");
-	b.takeDamage(5);
-	b.beRepaired(3);
-	b.takeDamage(10);
-	b.beRepaired(20);
-	
-	return (0);
+	temp.signForm(formA);
+	temp.decreaseGrade(10);
+	temp.signForm(formB);
+	std::cout << formA << std::endl;
+	std::cout << formB << std::endl;
+	return 0;
 }

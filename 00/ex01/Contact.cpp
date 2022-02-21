@@ -6,7 +6,7 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:44:55 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/17 21:40:05 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/20 14:47:45 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ std::string	Contact::str_trim(std::string str)
 	else
 		sub_str = str;
 	return (sub_str);
-}
-
+}∂
 
 void Contact::print_info(void)
 {

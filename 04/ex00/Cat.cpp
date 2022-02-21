@@ -6,7 +6,7 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 13:37:08 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/20 13:37:09 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/20 14:50:49 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ Cat::Cat() : Animal()
 	std::cout << "< Cat > Default consturctor" << std::endl;
 }
 
-Cat::Cat(const Animal &obj) : Animal()
+Cat::Cat(const Animal &other) : Animal()
 {
-	this->type = obj.getType();
+	this->type = other.getType();
 	std::cout << "< Cat > Copy consturctor" << std::endl;
 }
 
-Cat &Cat::operator=(const Animal &obj)
+Cat &Cat::operator=(const Animal &other)
 {
-	this->type = obj.getType();
+	this->type = other.getType();
 	std::cout << "< Cat > Copy Assigned" << std::endl;
 	return *this;
 }

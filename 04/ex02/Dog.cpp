@@ -1,21 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/20 13:37:45 by sunbchoi          #+#    #+#             */
+/*   Updated: 2022/02/21 19:16:39 by sunbchoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 
-Dog::Dog() : Animal(), brain(NULL){
-	this->type = DOG;
+Dog::Dog() : Animal()
+{
+	this->type = "Dog";
 	brain = new Brain();
-	COUT << "< DOG > Default consturctor" << ENDL;
+	std::cout << "< Dog > Default consturctor" << std::endl;
 }
-Dog::Dog(const Dog &obj) : Animal(), brain(NULL){
-	this->type = obj.getType();
-	this->brain = new Brain(*obj.getBrain());
-	COUT << "< DOG > Copy consturctor" << ENDL;
+
+Dog::Dog(const Dog &other)
+{
+	this->type = other.getType();
+	this->brain = new Brain(*other.getBrain());
+	std::cout << "< Dog > Copy consturctor" << std::endl;
 }
-Dog &Dog::operator=(const Dog &obj){
-	this->type = obj.getType();
-	*this->brain = *obj.getBrain();
-	COUT << "< DOG > Copy Assigned" << ENDL;
-	return *this;
+
+Dog &Dog::operator=(const Dog &other)
+{
+	this->type = other.getType();
+	*(this->brain) = *(other.getBrain());
+	std::cout << "< Dog > Copy Assigned" << std::endl;
+	return (*this);
 }
-Dog::~Dog(){ COUT << "< DOG > Copy Destructed" << ENDL; }
-void Dog::makeSound() const { COUT << "< DOG > BowBow" << ENDL; }
-const Brain *Dog::getBrain() const { return this->brain; }
+
+Dog::~Dog()
+{
+	delete (brain);
+	std::cout << "< Dog > Copy Destructed" << std::endl; 
+}
+
+void Dog::makeSound() const 
+{
+	std::cout << "< Dog > BowBow" << std::endl; 
+}
+
+const Brain *Dog::getBrain() const 
+{
+	return (this->brain);
+}

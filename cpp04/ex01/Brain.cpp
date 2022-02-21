@@ -1,7 +1,7 @@
 #include "Brain.hpp"
 
 STRING make_name(int idx){
-	const static STRING num = "ABCDEFGHIJ";
+	const static STRING num = "✋☺😐☹💣☠⚐✈☼✠";
 	STRING ret;
 	while (idx){
 		ret.push_back(num[idx % 10]);

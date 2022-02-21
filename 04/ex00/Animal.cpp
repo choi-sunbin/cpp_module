@@ -6,7 +6,7 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 13:36:59 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/20 13:37:01 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/20 14:50:25 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,4 @@ std::string Animal::getType() const
 void Animal::makeSound() const
 {
 	std::cout << "< Animal > Nope " << std::endl;
-}
-
-std::ostream &operator<<(std::ostream &output, const Animal &other)
-{
-	return output << other.getType();
 }
