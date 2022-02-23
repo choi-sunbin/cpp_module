@@ -6,7 +6,7 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 15:06:56 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/21 18:49:07 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/23 09:23:52 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ Brain &Brain::operator=(const Brain &other)
 		idea[loop] = other.getIdea(loop);
 		loop++;
 	}
-	std::cout << "< Brain > Copy Assigned" << std::endl;
+	std::cout << "< Brain > Assigned" << std::endl;
 	return (*this);
 }
 

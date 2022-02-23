@@ -13,12 +13,12 @@ WrongCat::WrongCat(const WrongAnimal &other) : WrongAnimal()
 WrongCat &WrongCat::operator=(const WrongAnimal &other)
 {
 	this->type = other.getType();
-	std::cout << "< WrongCat > Copy Assigned" << std::endl;
+	std::cout << "< WrongCat > Assigned" << std::endl;
 	return *this;
 }
 WrongCat::~WrongCat()
 {
-	std::cout << "< WrongCat > Copy Destructed" << std::endl;
+	std::cout << "< WrongCat > Destructed" << std::endl;
 }
 
 void WrongCat::makeSound() const 

@@ -2,7 +2,7 @@
 #include "Dog.hpp"
 #include <stdlib.h>
 
-void t(){
+void test_case1(){
 	const Animal *meta = new Cat();
 	const Animal *i = new Dog();
 	const Animal *j = new Dog();
@@ -11,24 +11,27 @@ void t(){
 	meta->makeSound();
 	i->makeSound();
 	j->makeSound();
-	std::cout << std::endl;
-	*(const_cast<Animal*>(j)) = *(const_cast<Animal*>(i));
+	
 	std::cout << std::endl;
 	delete meta;
 	delete i;
 	delete j;
 }
 
-void tt(){
+void test_case2(){
 	int loop;
 	const Dog *dog = new Dog();
-	const Cat *cat = new Cat();
+	const Dog ddog(*dog);
 
+	const Cat *cat = new Cat();
+	
 	std::cout << "\n ----------- PRINT DOG -----------\n";
 	loop = 0;
 	while (loop < 100)
 	{
-		std::cout << dog->getBrain()->getIdea(loop);
+		std::cout << "[" << dog->getBrain()->getIdea(loop) << "]";
+		std::cout << "[" << ddog.getBrain()->getIdea(loop) << "]";
+		std::cout << std::endl;
 		loop++;	
 	}
 	std::cout << "\n ----------- PRINT CAT -----------\n";
@@ -44,8 +47,8 @@ void tt(){
 }
 
 int main(){
-	t();
+	test_case1();
 	std::cout << "\n\n=================================================\n\n";
-	tt();
+	test_case2();
 	system("leaks a.out");
 }

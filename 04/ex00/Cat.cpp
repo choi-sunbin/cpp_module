@@ -6,7 +6,7 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 13:37:08 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/20 14:50:49 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/23 09:20:46 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ Cat::Cat(const Animal &other) : Animal()
 Cat &Cat::operator=(const Animal &other)
 {
 	this->type = other.getType();
-	std::cout << "< Cat > Copy Assigned" << std::endl;
+	std::cout << "< Cat > Assigned" << std::endl;
 	return *this;
 }
 
 Cat::~Cat()
 {
-	std::cout << "< Cat > Copy Destructed" << std::endl;
+	std::cout << "< Cat > Destructed" << std::endl;
 }
 
 void Cat::makeSound() const
