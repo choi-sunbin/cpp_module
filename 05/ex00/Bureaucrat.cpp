@@ -6,13 +6,18 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 01:56:30 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/22 02:25:39 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/23 01:32:44 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(const std::string &Name, const int &grade)
+Bureaucrat::Bureaucrat()
+: name(""), grade(0)
+{
+}
+
+Bureaucrat::Bureaucrat(std::string const &Name, int const &grade)
 : name(Name)
 {
 	if (grade < MAX_HIGH_GRADE)
@@ -23,15 +28,13 @@ Bureaucrat::Bureaucrat(const std::string &Name, const int &grade)
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat &other)
-: name(other.name)
+: name(other.name), grade(other.grade)
 {
-	this->grade = other.grade;
 }
 
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other)
 {
-	if (this != &other)
-		this->grade = other.grade;
+	this->grade = other.grade;
 	return (*this);
 }
 
@@ -51,7 +54,7 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::increaseGrade(int amount)
 {
-	if (this->grade - amount <= MAX_HIGH_GRADE)
+	if (this->grade - amount < MAX_HIGH_GRADE)
 		throw Bureaucrat::GradeTooHighException();
 	if (this->grade - amount > MAX_LOW_GRADE)
 		throw Bureaucrat::GradeTooLowException();
@@ -60,7 +63,7 @@ void Bureaucrat::increaseGrade(int amount)
 
 void Bureaucrat::decreaseGrade(int amount)
 {
-	if (this->grade + amount <= MAX_HIGH_GRADE)
+	if (this->grade + amount < MAX_HIGH_GRADE)
 		throw Bureaucrat::GradeTooHighException();
 	if (this->grade + amount > MAX_LOW_GRADE)
 		throw Bureaucrat::GradeTooLowException();

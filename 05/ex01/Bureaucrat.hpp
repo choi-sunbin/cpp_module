@@ -6,7 +6,7 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 01:56:33 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/22 03:47:01 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:59:49 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ class Form;
 class Bureaucrat
 {
 	public:
-		Bureaucrat(const std::string &Name, const int &grade);
+		Bureaucrat(std::string const &Name, int const &grade);
 		Bureaucrat(Bureaucrat &other);
 		~Bureaucrat();
-		Bureaucrat& operator=(const Bureaucrat &other);
+		Bureaucrat& operator=(Bureaucrat const &other);
 		std::string getName() const;
 		int getGrade() const;
 		void increaseGrade(int amount);
@@ -48,8 +48,8 @@ class Bureaucrat
         };
 	private:
 		Bureaucrat(void);
+		std::string const name;
 		int grade;
-		const std::string name;
 };
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &bureaucrat);
 

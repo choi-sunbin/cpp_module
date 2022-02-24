@@ -6,7 +6,7 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 01:56:30 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/24 14:30:41 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/25 03:06:09 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,21 @@ void Bureaucrat::signForm(Form &form)
 		std::cout << *this << " cannot sign " << form << " because "<< e.what() << std::endl;
 	}
 }
+
+
+void Bureaucrat::executeForm(Form &form)
+{
+	try
+	{
+		std::cout << *this << " executes " << form << std::endl;
+		form.action(*this);
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << *this << " cannot execute " << form << " because " << e.what() << std::endl;
+	}
+}
+
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &bureaucrat)
 {

@@ -6,7 +6,7 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 02:39:49 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/25 02:31:33 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/25 02:33:48 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,24 @@
 #include "Bureaucrat.hpp"
 
 Form::Form()
-: name(""), sign(false)
+: name(""), target(""), sign(false)
 , reqSignGrade(0)
 , reqExecGrade(0)
 {
+	if (reqSignGrade < MAX_HIGH_GRADE)
+		throw Form::GradeTooHighException();
+	if (reqSignGrade > MAX_LOW_GRADE)
+		throw Form::GradeTooLowException();
+	if (reqExecGrade < MAX_HIGH_GRADE)
+		throw Form::GradeTooHighException();
+	if (reqExecGrade > MAX_LOW_GRADE)
+		throw Form::GradeTooLowException();
 } 
 
-Form::Form(std::string const &name, int reqSignGrade, int reqExecGrade) 
-: name(name), reqSignGrade(reqSignGrade)
+Form::Form(std::string const &name, std::string const &target,int reqSignGrade, int reqExecGrade) 
+: name(name), target(target)
+, sign(false)
+, reqSignGrade(reqSignGrade)
 , reqExecGrade(reqExecGrade)
 {
 	if (reqSignGrade < MAX_HIGH_GRADE)
@@ -41,6 +51,12 @@ Form::Form(Form const &other)
 	this->sign = other.sign;
 }
 
+Form &Form::operator=(Form const &other)
+{
+	this->sign = other.sign;
+	return (*this);
+}
+
 Form::~Form()
 {
 }
@@ -57,6 +73,11 @@ std::string Form::getName() const
 	return (this->name);
 }
 
+std::string Form::getTarget() const
+{
+	return (this->target);
+}
+
 bool Form::getSign() const
 {
 	return (this->sign);
@@ -70,6 +91,14 @@ int Form::getSignGrade() const
 int Form::getExecGrade() const
 {
 	return (this->reqExecGrade);
+}
+
+void Form::execute(Bureaucrat const &executor) const
+{
+	if (this->getSign() == false)
+		throw Form::NotSignedException();
+	if (executor.getGrade() > this->getExecGrade())
+		throw Form::GradeTooLowException();
 }
 
 std::ostream &operator<<(std::ostream &os, Form const &form)
