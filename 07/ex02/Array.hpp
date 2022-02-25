@@ -1,5 +1,17 @@
-#if !defined(ARRAY_HPP)
-#define ARRAY_HPP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/26 04:04:16 by sunbchoi          #+#    #+#             */
+/*   Updated: 2022/02/26 04:04:33 by sunbchoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ARRAY_HPP
+# define ARRAY_HPP
 
 template <typename T>
 class Array
