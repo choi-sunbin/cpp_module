@@ -6,7 +6,6 @@ void t(){
 	const Animal *i = new Dog();
 	const Animal *j = new Dog();
 
-
 	COUT << ENDL;
 	meta->makeSound();
 	i->makeSound();
