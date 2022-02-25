@@ -16,7 +16,7 @@ int main(void)
 	Arr_temp = Arr_str;
 
 	loop = 0;
-	while (loop < Arr_str.getSize())
+	while (loop < Arr_str.size())
 		std::cout << Arr_str[loop++] << " ";
 	std::cout << std::endl;
 
@@ -29,5 +29,8 @@ int main(void)
 		std::cout << e.what() << std::endl;
 	}
 
+	system("leaks array");
 	return (0);
 }
+
+

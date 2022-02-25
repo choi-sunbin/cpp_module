@@ -5,22 +5,22 @@ template <typename T>
 class Array
 {
 private:
-	unsigned int size;
+	unsigned int _size;
 	T *array;
 
 public:
-	Array<T>():size(0), array(NULL)
+	Array<T>():_size(0), array(NULL)
 	{
 	};
-	Array<T>(unsigned int size) : size(size)
+	Array<T>(unsigned int _size) : _size(_size)
 	{
-		this->array = new T[size];
-		this->size = size;
+		this->array = new T[_size];
+		this->_size = _size;
 	};
 	Array<T>(const Array &other)
 	{
-		this->array = new T[other.size()];
-		for (unsigned int i = 0; i < other.size(); i++)
+		this->array = new T[other._size()];
+		for (unsigned int i = 0; i < other._size(); i++)
 			this->array[i] = other[i];
 	};
 
@@ -30,12 +30,12 @@ public:
 	
 		if (this == &other)
 			return (*this);
-		if (this->size > 0)
+		if (this->_size > 0)
 			delete [] this->array;
-		this->size = other.size;
-		this->array = new T[other.size];
+		this->_size = other._size;
+		this->array = new T[other._size];
 		loop = 0;
-		while (loop < other.size)
+		while (loop < other._size)
 		{
 			this->array[loop] = other[loop];
 			loop++;
@@ -49,7 +49,7 @@ public:
 
 	T &operator[](int index) const
 	{
-		if (index < 0 || index >= static_cast<int>(this->size))
+		if (index < 0 || index >= static_cast<int>(this->_size))
 			throw Array::OutOfRangeException();
 		return this->array[index];
 	};
@@ -59,9 +59,9 @@ public:
 		return this->array;
 	};
 
-	unsigned int getSize() const
+	unsigned int size() const
 	{
-		return this->size;
+		return this->_size;
 	}
 
 	class OutOfRangeException : public std::exception
