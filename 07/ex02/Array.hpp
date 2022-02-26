@@ -6,12 +6,15 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 04:04:16 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/26 04:04:33 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/26 04:13:36 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
+
+#include <iostream>
+#include <string>
 
 template <typename T>
 class Array
@@ -21,7 +24,7 @@ private:
 	T *array;
 
 public:
-	Array<T>():_size(0), array(NULL)
+	Array<T>():_size(0), array()
 	{
 	};
 	Array<T>(unsigned int _size) : _size(_size)
@@ -31,8 +34,8 @@ public:
 	};
 	Array<T>(const Array &other)
 	{
-		this->array = new T[other._size()];
-		for (unsigned int i = 0; i < other._size(); i++)
+		this->array = new T[other.size()];
+		for (unsigned int i = 0; i < other.size(); i++)
 			this->array[i] = other[i];
 	};
 

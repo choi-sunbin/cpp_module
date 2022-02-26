@@ -6,43 +6,63 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 04:04:43 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/26 04:04:45 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/26 04:16:35 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
 #include "Array.hpp"
+#include <iostream>
+#include <ctime>
 
-int main(void)
+#define MAX_VAL 750
+int main(int, char**)
 {
-	Array<std::string> Arr_str(4);
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    
+	for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
 	
-	unsigned int loop;
-	Arr_str[0] = "Hi";
-	Arr_str[1] = "my name";
-	Arr_str[2] = "is";
-	Arr_str[3] = "sunbchoi";
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        //Array<int> test(tmp);
+    }
 
-	Array<std::string> Arr_temp(15);
-	Arr_temp = Arr_str;
+    // for (int i = 0; i < MAX_VAL; i++)
+    // {
+    //     if (mirror[i] != numbers[i])
+    //     {
+    //         std::cerr << "didn't save the same value!!" << std::endl;
+    //         return 1;
+    //     }
+    // }
+    // try
+    // {
+    //     numbers[-2] = 0;
+    // }
+    // catch(const std::exception& e)
+    // {
+    //     std::cerr << e.what() << '\n';
+    // }
+    // try
+    // {
+    //     numbers[MAX_VAL] = 0;
+    // }
+    // catch(const std::exception& e)
+    // {
+    //     std::cerr << e.what() << '\n';
+    // }
 
-	loop = 0;
-	while (loop < Arr_str.size())
-		std::cout << Arr_str[loop++] << " ";
-	std::cout << std::endl;
-
-	try
-	{
-		std::cout << Arr_str[100] << std::endl;
-	}
-	catch(std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-	system("leaks array");
-	return (0);
+    // for (int i = 0; i < MAX_VAL; i++)
+    // {
+    //     numbers[i] = rand();
+    // }
+    // delete [] mirror;//
+    return 0;
 }
-
-

@@ -30,4 +30,4 @@ public:
 	void action(Bureaucrat const &executor) const;
 };
 
-#endif // 
+#endif 
