@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mutantstack.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/27 16:19:50 by sunbchoi          #+#    #+#             */
+/*   Updated: 2022/02/27 16:19:52 by sunbchoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "mutantstack.hpp"
 
 template <typename T>
@@ -34,6 +46,7 @@ typename MutantStack<T>::iterator MutantStack<T>::begin()
 template <typename T>
 typename MutantStack<T>::iterator MutantStack<T>::end()
 {
+	this->c
 	return this->c.end();
 }
 

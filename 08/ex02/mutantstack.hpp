@@ -6,7 +6,7 @@
 /*   By: sunbchoi <sunbchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 15:09:27 by sunbchoi          #+#    #+#             */
-/*   Updated: 2022/02/27 15:29:14 by sunbchoi         ###   ########.fr       */
+/*   Updated: 2022/02/27 16:20:05 by sunbchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ public:
 	typedef typename MutantStack<T>::stack::container_type::reverse_iterator reverse_iterator;
 	reverse_iterator rbegin();
 	reverse_iterator rend();
-
 };
 
 #endif 
